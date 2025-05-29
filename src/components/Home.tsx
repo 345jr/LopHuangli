@@ -28,6 +28,8 @@ interface todayJiXiong {
     jiXiong: string;
     range: string;
 };
+
+
 const Home = () => {
     const [time , setTime ] =useState(dayjs())
     const [data , setData] =useState<huangLiData | null>(null)
@@ -44,7 +46,10 @@ const Home = () => {
         .then(r=>r.json())
         .then(d=>setData(d))
         .catch(e=>console.log(`加载失败 :${e}`))
+        
     },[])
+
+    
   return (
     <div >
       <h1 className="text-xl font-bold my-2">今日黄历</h1>
@@ -73,7 +78,7 @@ const Home = () => {
             <h3>时辰吉凶</h3>  
             <ul className="mx-4">
                 {data?.data.todayJiXiong.map((item,index)=>(
-                    <li key={index} className="my-2">{item.siCheng}-{item.jiXiong} |时间段 :{item.range}</li>                
+                    <li key={index} className="">{item.siCheng}-{item.jiXiong} |时间段 :{item.range}</li>                
                 ))}
             </ul>  
         </div>  

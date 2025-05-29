@@ -9,13 +9,13 @@ const TopBar = () => {
     { name: "更新", to: "/updata" },
   ];
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-white shadow">
+    <header className="flex items-center justify-between px-6 py-4 bg-black shadow">
       <div className="flex flex-row ">
         <FaCalendar
-          className="mx-2 my-1.5 cursor-pointer text-gray-600 hover:text-gray-900"
+          className="mx-2 my-1.5 cursor-pointer text-slate-400 hover:text-white"
           size={30}
         />
-        <span className="py-2 text-2xl font-bold text-yellow-500">LopCalendar</span>
+        <span className="py-2 text-2xl font-bold text-slate-400">LopCalendar</span>
       </div>
       <nav className="flex space-x-4">
         {MENU.map((item) => (
@@ -24,7 +24,7 @@ const TopBar = () => {
             to={item.to}
             className={({ isActive }) =>
               `px-3 py-2 text-xl  font-bold transition-colors ${
-                isActive ? "text-red-500" : "text-gray-700 hover:text-red-500"
+                isActive ? "text-slate-400" : "text-white hover:text-gray-600"
               }`
             }
             end
@@ -35,11 +35,11 @@ const TopBar = () => {
       </nav>
       <div className="flex items-center space-x-4">
         <FaGithub
-          className="cursor-pointer text-gray-600 hover:text-gray-900"
+          className="cursor-pointer text-white hover:text-slate-400"
           size={30}
         />
         <FaRegSmile
-          className="cursor-pointer text-gray-600 hover:text-gray-900"
+          className="cursor-pointer text-white hover:text-slate-400"
           size={30}
         />
       </div>
