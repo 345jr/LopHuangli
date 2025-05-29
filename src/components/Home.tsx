@@ -1,55 +1,15 @@
+import type { huangLiData } from "../types/huangli"
 import { useEffect , useState } from "react"
 import dayjs from "dayjs"
-interface huangLiData {
-    into :string,
-    time :string,
-    data:{
-        lunarDay: string;
-        ganZhiDay: string;
-        lunarHour:string;
-        fetus:string;
-        Zone:string;
-        twentyEightStar:string;
-        animal:string;
-        luckStar:string;
-        pengZu:string;
-        sound:string;
-        duty:string;
-        zodiac:string;
-        chongToAnimal:string;
-        shaDirection:string;
-        taboosGood:string[];
-        taboosBad:string[];
-        todayJiXiong:todayJiXiong[];
-    } 
-}
-interface todayJiXiong {
-    siCheng: string;
-    jiXiong: string;
-    range: string;
-};
 
-
-const Home = () => {
+const Home = ({data}:{data:huangLiData | null}) => {
     const [time , setTime ] =useState(dayjs())
-    const [data , setData] =useState<huangLiData | null>(null)
-
     useEffect(()=>{
         const timer = setInterval(() => {
             setTime(dayjs())
         }, 1000);
         return ()=>clearInterval(timer)
     },[])
-
-    useEffect(()=>{
-        fetch("http://localhost:3000/api/huangli")
-        .then(r=>r.json())
-        .then(d=>setData(d))
-        .catch(e=>console.log(`加载失败 :${e}`))
-        
-    },[])
-
-    
   return (
     <div >
       <h1 className="text-xl font-bold my-2">今日黄历</h1>
