@@ -15,11 +15,11 @@ const App = () => {
           .catch(e=>console.log(`加载失败 :${e}`))          
       },[])
   return (
-    <div>
+    <div className="">
       <TopBar></TopBar>
       <TimeSlider data={data} ></TimeSlider>
       <Home data={data}></Home>
-      </div>
+    </div>
   )
 }
 

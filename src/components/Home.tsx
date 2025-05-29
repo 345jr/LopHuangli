@@ -35,12 +35,7 @@ const Home = ({data}:{data:huangLiData | null}) => {
                 <li key={index}>{item}</li>
                 ))}
             </ul>
-            <h3>时辰吉凶</h3>  
-            <ul className="mx-4">
-                {data?.data.todayJiXiong.map((item,index)=>(
-                    <li key={index} className="">{item.siCheng}-{item.jiXiong} |时间段 :{item.range}</li>                
-                ))}
-            </ul>  
+            
         </div>  
     </div>
   );
