@@ -15,7 +15,7 @@ const TopBar = () => {
           className="mx-2 my-1.5 cursor-pointer text-slate-400 hover:text-white"
           size={30}
         />
-        <span className="py-2 text-2xl font-bold text-slate-400">LopCalendar</span>
+        <span className="py-2 text-2xl font-bold text-white">LopCalendar</span>
       </div>
       <nav className="flex space-x-4">
         {MENU.map((item) => (

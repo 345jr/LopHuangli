@@ -14,8 +14,11 @@ const App = () => {
           .then(d=>setData(d))
           .catch(e=>console.log(`加载失败 :${e}`))          
       },[])
+  if(!data) {
+    return <div className="text-center py-20">加载中…</div>;
+  }
   return (
-    <div className="">
+    <div className="relative">
       <TopBar></TopBar>
       <TimeSlider data={data} ></TimeSlider>
       <Home data={data}></Home>
