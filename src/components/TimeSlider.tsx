@@ -18,32 +18,13 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
     "酉时",
     "戌时",
     "亥时",
-    "占位符时"
+    "占位符"
   ]; 
-  const test =[
-    "Panda滑雪板",
-    "东京塔下的猫咪",
-    "夏日祭典的金鱼",
-    "冲绳的菠萝冰沙",
-    "北海道的雪人",
-    "京都的抹茶拿铁",
-    "大阪章鱼烧大师",
-    "富士山日出之旅",
-    "拉面自动贩卖机",
-    "涩谷十字路口的鸽子",
-    "秋叶原的手办模型",
-    "新干线的光速传说",
-    "居酒屋的深夜食堂",
-    "温泉旅馆的榻榻米",
-    "樱花盛开的公园"
-  ]
+ 
   // const hour      = parseInt(data.time.split('-')[3], 10);   
   // const dataIndex = Math.min(Math.floor(hour / 2), 11);      
   const shiChen = `${data.data.lunarHour.toString().slice(-1)}时`; 
-  console.log(shiChen)
   const dataIndex = shiChenArray.findIndex((i) => i == shiChen);
-  console.log(typeof dataIndex)
-  console.log(dataIndex)
   const getThemeColor = () => {
     const hour = data ? parseInt(data.time.split("-")[3]) : 0;
     const isDaytime = hour >= 6 && hour < 18;
@@ -70,7 +51,7 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
       />
       {/* 主内容 */}
       <div className="relative flex justify-center w-full py-12 z-10">
-        <SiChen data={data} sliceNum={{start:0,end:6}}/>
+        <SiChen data={data} sliceNum={{start:0,end:6,now:shiChen}}/>
         {getThemeColor().isDaytime ? (
           <IoSunny className="text-amber-500" size={60} />
         ) : (
@@ -90,7 +71,7 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
         />
         
         
-        <SiChen data={data} sliceNum={{start:6,end:12}}/>
+        <SiChen data={data} sliceNum={{start:6,end:12,now:shiChen}}/>
       </div>
     </div>
   );

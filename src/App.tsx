@@ -1,8 +1,10 @@
 import type { huangLiData } from "./types/huangli"
+import { useEffect, useState } from "react"
+
 import TopBar from "./components/TopBar"
 import Home from "./components/Home"
 import TimeSlider from "./components/TimeSlider"
-import { useEffect, useState } from "react"
+import Footer from "./components/Footer"
 
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
       <TopBar></TopBar>
       <TimeSlider data={data} ></TimeSlider>
       <Home data={data}></Home>
+      <Footer /> 
     </div>
   )
 }

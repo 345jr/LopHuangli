@@ -12,7 +12,9 @@
   "dependencies": {
     "@fseehawer/react-circular-slider": "^3.2.7",
     "@tailwindcss/vite": "^4.1.7",
+    "antd": "^5.25.4",
     "dayjs": "^1.11.13",
+    "framer-motion": "^12.15.0",
     "radix-ui": "^1.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

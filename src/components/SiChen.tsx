@@ -1,5 +1,7 @@
 import type { huangLiData } from "../types/huangli";
-const SiChen = ({data , sliceNum}:{data:huangLiData |null , sliceNum:any}) => {
+import type { timeRange } from "../types/timeRange";
+import ShinyText from "./Reactbits/ShinyText";
+const SiChen = ({data , sliceNum}:{data:huangLiData |null , sliceNum:timeRange}) => {
   return (
     <div>
         <dl className="px-6 divide-y divide-gray-700">
@@ -22,9 +24,10 @@ const SiChen = ({data , sliceNum}:{data:huangLiData |null , sliceNum:any}) => {
                 </span>
                 {/* 右侧：时辰 + 时间段 */}
                 <div>
-                  <dt className="text-lg font-semibold text-white pl-6">
+                  <dt className={siCheng===sliceNum.now?"text-2xl font-extrabold text-teal-400 pl-6":"text-lg font-semibold text-white pl-6"}>
                     {siCheng}
                   </dt>
+                  {/* <ShinyText text={siCheng} disabled={false} speed={3} className='text-lg font-semibold text-red-500'/> */}
                   <dd className="text-sm text-gray-400 ">{range}</dd>
                 </div>
               </div>
