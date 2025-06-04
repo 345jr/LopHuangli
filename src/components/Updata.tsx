@@ -9,8 +9,8 @@ const upData = [
     description: "布局优化+组件使用：使用了蚂蚁设计+Reactbit",
   },
   {
-    title: "Ant Design Title 2",
-    description: "niaho",
+    title: "2025.6.4",
+    description: "相关知识页的骨架完成完善了初步工作",
   },
   {
     title: "Ant Design Title 3",
@@ -72,7 +72,7 @@ const Updata = () => {
                       src={`https://image.lopop.top/LaoHuangLi/plan_template.png`}
                     />
                   }
-                  title={<a href="https://ant.design">{item.title}</a>}
+                  title={<p>{item.title}</p>}
                   description={item.description}
                 />
               </List.Item>

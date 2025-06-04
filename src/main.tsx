@@ -4,7 +4,7 @@ import './index.css'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 
 import App from './App.tsx'
-import Knowledge from './components/Knowledge.tsx'
+import Knowledge from './components/KnowledgePages/Knowledge.tsx'
 import NotFoundPage from './components/NotFoundPage.tsx'
 import Updata from './components/Updata.tsx'
 

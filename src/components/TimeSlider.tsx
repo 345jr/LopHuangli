@@ -21,8 +21,7 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
     "占位符"
   ]; 
  
-  // const hour      = parseInt(data.time.split('-')[3], 10);   
-  // const dataIndex = Math.min(Math.floor(hour / 2), 11);      
+        
   const shiChen = `${data.data.lunarHour.toString().slice(-1)}时`; 
   const dataIndex = shiChenArray.findIndex((i) => i == shiChen);
   const getThemeColor = () => {
