@@ -12,7 +12,7 @@ const ShowNowTime = () => {
   return (
     <div className="flex flex-row justify-center">
       <h2 className="text-3xl font-bold py-6 px-2">
-        当前时间:{time.format("YYYY-MM-DD HH:mm")}
+        当前时间:{time.format("YYYY-MM-DD HH:mm")} :
       </h2>
       <Counter
         value={parseInt(time.format('ss'))}

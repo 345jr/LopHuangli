@@ -9,7 +9,7 @@ const TopBar = () => {
     { name: "更新", to: "/updata" },
   ];
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-black shadow">
+    <header className="flex items-center justify-between px-6 py-4 bg-black shadow border-b-2 border-[oklch(44.3%_0.11_240.79)]">
       <div className="flex flex-row ">
         <FaCalendar
           className="mx-2 my-1.5 cursor-pointer text-slate-400 hover:text-white"
