@@ -44,14 +44,14 @@ const ContentPage = ({selectedKey}:ContentPageProps) => {
   
 
   return (
-    <Row>
-      <Col span={16}>
-        <div ref={anchorRef} className="prose">
-          你当前选择的是{selectedKey}
-          <Markdown remarkPlugins={[remarkGfm]}  rehypePlugins={[rehypeSlug]} >{mdContent}</Markdown>
+    <Row wrap={false}>
+      <Col  flex='auto'>
+        <div ref={anchorRef} className="prose max-w-none pr-5">
+          {/* 你当前选择的是{selectedKey} */}
+          <Markdown remarkPlugins={[remarkGfm]}  rehypePlugins={[rehypeSlug]} >{mdContent}</Markdown>          
         </div>
       </Col>
-      <Col span={8}>
+      <Col flex='200px'>
         <Anchor 
           items={items}
         />
