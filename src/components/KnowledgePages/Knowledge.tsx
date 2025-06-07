@@ -1,15 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { MenuProps } from "antd";
 import { Menu, Layout, theme } from "antd";
 
-import TopBar from "../TopBar";
-import Footer from "../Footer";
+import TopBar from "../Global/TopBar";
+import Footer from "../Global/Footer";
 import ContentPage from "./ContentPage";
-import MenuItems from './MenuItem'
+import MenuItems from "./MenuItem";
 
 interface LevelKeysProps {
   key?: string;
   children?: LevelKeysProps[];
+}
+//检查断点
+function useIsSmallScreen(breakpoint = 768) {
+  const [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    const check = () => {
+      setIsSmall(window.innerWidth < breakpoint);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [breakpoint]);
+
+  return isSmall;
 }
 
 const { Content, Sider } = Layout;
@@ -37,6 +52,8 @@ const Knowledge = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  const isSmallScreen = useIsSmallScreen();
+
   const siderStyle: React.CSSProperties = {
     overflow: "auto",
     height: "100vh",
@@ -49,8 +66,8 @@ const Knowledge = () => {
     background: colorBgContainer,
   };
 
-  const [stateOpenKeys, setStateOpenKeys] = useState(["2", "23"]);
-  const [selectedKey , setSelectedKey] = useState('231')
+  const [stateOpenKeys, setStateOpenKeys] = useState(["1"]);
+  const [selectedKey, setSelectedKey] = useState("11");
 
   const onOpenChange: MenuProps["onOpenChange"] = (openKeys) => {
     const currentOpenKey = openKeys.find(
@@ -74,25 +91,41 @@ const Knowledge = () => {
       setStateOpenKeys(openKeys);
     }
   };
-  const handleMenuSelect:MenuProps["onSelect"] =({key})=>{
-    setSelectedKey(key)
-  }
+  const handleMenuSelect: MenuProps["onSelect"] = ({ key }) => {
+    setSelectedKey(key);
+  };
 
   return (
     <div>
       <TopBar />
-      <Layout>
-        <Sider width={200} style={siderStyle}>
+      {isSmallScreen ? (
+        <div>
           <Menu
-            mode="inline"
-            defaultSelectedKeys={["231"]}
+            mode="horizontal"
             openKeys={stateOpenKeys}
             onOpenChange={onOpenChange}
-            style={{ width: 200 }}
+            style={{ flex: 1, minWidth: 0 }}
             items={MenuItems}
             onSelect={handleMenuSelect}
           />
-        </Sider>
+        </div>
+      ) : null}
+      <Layout>
+        {isSmallScreen ? null : (
+          <div>
+            <Sider width={200} style={siderStyle} breakpoint="md">
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={["11"]}
+                openKeys={stateOpenKeys}
+                onOpenChange={onOpenChange}
+                style={{ width: 200 }}
+                items={MenuItems}
+                onSelect={handleMenuSelect}
+              />
+            </Sider>
+          </div>
+        )}
         <Layout style={{ padding: "24px 24px " }}>
           <Content
             style={{
@@ -102,9 +135,8 @@ const Knowledge = () => {
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}
-            
           >
-            <ContentPage selectedKey={selectedKey}/>
+            <ContentPage selectedKey={selectedKey} />
           </Content>
         </Layout>
       </Layout>

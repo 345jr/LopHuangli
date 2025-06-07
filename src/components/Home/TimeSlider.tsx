@@ -1,5 +1,5 @@
 import CircularSlider from "@fseehawer/react-circular-slider";
-import type { huangLiData } from "../types/huangli";
+import type { huangLiData } from "../../types/huangli";
 import { IoSunny } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa";
 import SiChen from "./SiChen";
@@ -49,14 +49,14 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
         }}
       />
       {/* 主内容 */}
-      <div className="relative flex justify-center w-full py-12 z-10">
+      <div className="relative flex justify-center w-full py-2 sm:py-12 z-10">
         <SiChen data={data} sliceNum={{start:0,end:6,now:shiChen}}/>
         {getThemeColor().isDaytime ? (
-          <IoSunny className="text-amber-500" size={60} />
+          <IoSunny className="text-amber-500 animate-spin" size={60} />
         ) : (
           <FaMoon className="text-white" size={50} />
         )}
-       
+        <div className="hidden sm:block">
           <CircularSlider
           label={`时辰运势:${data?.data.jiXiong}`}
           data={shiChenArray}
@@ -68,6 +68,8 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
           progressColorTo={getThemeColor().progressColorTo}
           trackColor={getThemeColor().trackColor}
         />
+        </div>
+          
         
         
         <SiChen data={data} sliceNum={{start:6,end:12,now:shiChen}}/>

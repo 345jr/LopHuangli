@@ -11,10 +11,11 @@ const ShowNowTime = () => {
   }, []);
   return (
     <div className="flex flex-row justify-center">
-      <h2 className="text-3xl font-bold py-6 px-2">
+      <h2 className="text-xl sm:text-3xl font-bold py-6 px-2">
         当前时间:{time.format("YYYY-MM-DD HH:mm")} :
       </h2>
-      <Counter
+      <div className="">
+        <Counter
         value={parseInt(time.format('ss'))}
         places={[10, 1]}
         fontSize={80}
@@ -24,6 +25,7 @@ const ShowNowTime = () => {
         fontWeight={900}
         gradientFrom="white"
       />
+      </div>    
     </div>
   );
 };

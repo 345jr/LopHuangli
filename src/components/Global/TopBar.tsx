@@ -9,13 +9,13 @@ const TopBar = () => {
     { name: "更新", to: "/updata" },
   ];
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-black shadow border-b-2 border-[oklch(44.3%_0.11_240.79)]">
+    <header className="flex items-center justify-between px-2 py-1 sm:px-6 sm:py-4 bg-black shadow border-b-2 border-[oklch(44.3%_0.11_240.79)]">
       <div className="flex flex-row ">
         <FaCalendar
           className="mx-2 my-1.5 cursor-pointer text-slate-400 hover:text-white"
           size={30}
         />
-        <span className="py-2 text-2xl font-bold text-white">LopCalendar</span>
+        <span className="py-2 text-2xl font-bold text-white hidden sm:inline">LopCalendar</span>
       </div>
       <nav className="flex space-x-4">
         {MENU.map((item) => (
@@ -23,7 +23,7 @@ const TopBar = () => {
             key={item.to}
             to={item.to}
             className={({ isActive }) =>
-              `px-3 py-2 text-xl  font-bold transition-colors ${
+              `px-1 py-0.5 sm:px-3 sm:py-2 text-sm sm:text-xl font-bold transition-colors ${
                 isActive ? "text-slate-400" : "text-white hover:text-gray-600"
               }`
             }

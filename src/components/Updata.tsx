@@ -1,5 +1,5 @@
-import TopBar from "./TopBar";
-import Footer from "./Footer";
+import TopBar from "./Global/TopBar";
+import Footer from "./Global/Footer";
 import { Avatar, List } from "antd";
 import { Col, Row } from "antd";
 
@@ -13,19 +13,15 @@ const upData = [
     description: "相关知识页的骨架完成完善了初步工作",
   },
   {
-    title: "Ant Design Title 3",
-    description: "niaho",
+    title: "2025.6.5",
+    description: "完成了初步的响应式设计",
   },
   {
-    title: "Ant Design Title 4",
-    description: "niaho",
+    title: "2025.6.6",
+    description: "添加了AI解析功能初步实现",
   },
 ];
 const nextData = [
-  {
-    title: "响应式",
-    description: "适应不同的分辨率",
-  },
   {
     title: "相关知识页初步完成",
     description: "补完页面",

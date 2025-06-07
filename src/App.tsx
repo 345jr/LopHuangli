@@ -1,10 +1,10 @@
 import type { huangLiData } from "./types/huangli";
 import { useEffect, useState } from "react";
 
-import TopBar from "./components/TopBar";
-import Home from "./components/Home";
-import TimeSlider from "./components/TimeSlider";
-import Footer from "./components/Footer";
+import TopBar from "./components/Global/TopBar";
+import Home from "./components/Home/Home";
+import TimeSlider from "./components/Home/TimeSlider";
+import Footer from "./components/Global/Footer";
 
 const App = () => {
   const [data, setData] = useState<huangLiData | null>(null);

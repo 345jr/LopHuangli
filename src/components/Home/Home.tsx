@@ -1,45 +1,21 @@
-import type { huangLiData } from "../types/huangli";
+import type { huangLiData } from "../../types/huangli";
 import { Col, Row } from "antd";
-import type { CollapseProps } from "antd";
-import { Collapse } from "antd";
 import { Descriptions } from "antd";
 import type { DescriptionsProps } from "antd";
+import { Input } from 'antd';
+import type { InputRef } from 'antd';
+import { Button } from 'antd';
 
 import dayjs from "dayjs";
 
 import "dayjs/locale/zh-cn";
 
-import ShowNowTime from "./ShowNowTime/ShowNowTime";
+import ShowNowTime from "../ShowNowTime/ShowNowTime";
+import { useRef, useState } from "react";
 
 const Home = ({ data }: { data: huangLiData | null }) => {
   dayjs.locale("zh-cn");
 
-  const items: CollapseProps["items"] = [
-    {
-      key: "1",
-      label: "宜事项",
-      children: (
-        <ul className="mx-4">
-          {data?.data.taboosGood.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      ),
-    },
-  ];
-  const items2: CollapseProps["items"] = [
-    {
-      key: "1",
-      label: "忌事项",
-      children: (
-        <ul className="mx-4">
-          {data?.data.taboosBad.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      ),
-    },
-  ];
 
   const itemsInfo: DescriptionsProps["items"] = [
     {
@@ -98,8 +74,51 @@ const Home = ({ data }: { data: huangLiData | null }) => {
         </p>
       ),
     },
+    {
+      label: "宜事项",
+      span: "filled",
+      children: (
+        <div className="grid grid-cols-4 gap-4">
+          {data?.data.taboosGood.map((item, index) => (
+            <div key={index}>{item}</div>
+          ))}
+        </div>
+      ),
+    },
+    {
+      label: "忌事项",
+      span: "filled",
+      children: (
+        <div className="grid grid-cols-4 gap-4">
+          {data?.data.taboosBad.map((item, index) => (
+            <div key={index}>{item}</div>
+          ))}
+        </div>
+      ),
+    },
   ];
+  const [text, setText] = useState('');
+  const handleStream = async () => {
+    setText('');
+    const value = inputRef.current?.input?.value;
+    const response = await fetch(`http://localhost:3000/api/aliyunai?q=${encodeURIComponent(value || '')}`);
+    const reader = response.body?.getReader();
+    if (!reader) {
+      throw new Error("Response body is null");
+    }
+    const decoder = new TextDecoder('utf-8');
 
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+
+      const chunk = decoder.decode(value);
+      setText(prev => prev + chunk);
+    }
+  };
+
+  const inputRef =useRef<InputRef>(null)
+  const { TextArea } = Input;
   return (
     <div>
       <ShowNowTime />
@@ -113,14 +132,10 @@ const Home = ({ data }: { data: huangLiData | null }) => {
           />
         </Col>
         <Col span={30}>
-          <Row gutter={10}>
-            <Col span={50}>
-              <Collapse items={items} defaultActiveKey={["1"]} />
-            </Col>
-            <Col span={50}>
-              <Collapse items={items2} defaultActiveKey={["1"]} />
-            </Col>
-          </Row>
+          <h1>AI解析</h1>
+          <Input placeholder="请输入你的问题?" ref={inputRef} />
+          <Button onClick={handleStream}>发送</Button>
+          <TextArea showCount={true} allowClear={true} value={text}/>
         </Col>
       </Row>
     </div>

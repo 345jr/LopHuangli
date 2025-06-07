@@ -14,8 +14,19 @@ const ContentPage = ({selectedKey}:ContentPageProps) => {
   //获取指定文章  
   useEffect(()=>{
     let mdPath='';
-    if (selectedKey==='11'){
-      mdPath='/Content/111.md'
+    switch(selectedKey){
+      case '11' :
+        mdPath='/Content/11.md'
+        break
+      case '12' :
+        mdPath='/Content/12.md'
+        break         
+      case '22' :
+        mdPath='/Content/22.md'
+        break        
+      case '231':
+        mdPath='/Content/231.md'
+        break    
     }
     if (mdPath) {
       fetch(mdPath)
@@ -51,11 +62,14 @@ const ContentPage = ({selectedKey}:ContentPageProps) => {
           <Markdown remarkPlugins={[remarkGfm]}  rehypePlugins={[rehypeSlug]} >{mdContent}</Markdown>          
         </div>
       </Col>
-      <Col flex='200px'>
-        <Anchor 
-          items={items}
-        />
-      </Col>
+      <div className='hidden lg:block'>
+        <Col flex='200px'>
+          <Anchor 
+            items={items}
+          />
+        </Col>
+      </div>
+      
   </Row>
   )
 }

@@ -11,35 +11,22 @@ const items: MenuItem[] = [
     icon: <MailOutlined />,
     label: "总览",
     children: [
-      { key: "11", label: "本站概述" },
-      { key: "12", label: "Option 2" },
-      { key: "13", label: "Option 3" },
-      { key: "14", label: "Option 4" },
+      { key: "11", label: "概述" },
+      { key: "12", label: "why?" },
     ],
   },
   {
     key: "2",
     icon: <AppstoreOutlined />,
-    label: "中华传统文化",
+    label: "传统文化",
     children: [
       { key: "21", label: "农历" },
       { key: "22", label: "公历" },
       {
         key: "23",
-        label: "Submenu",
+        label: "其他",
         children: [
-          { key: "231", label: "Option 1" },
-          { key: "232", label: "Option 2" },
-          { key: "233", label: "Option 3" },
-        ],
-      },
-      {
-        key: "24",
-        label: "Submenu 2",
-        children: [
-          { key: "241", label: "Option 1" },
-          { key: "242", label: "Option 2" },
-          { key: "243", label: "Option 3" },
+          { key: "231", label: "24节气" },
         ],
       },
     ],
@@ -47,7 +34,7 @@ const items: MenuItem[] = [
   {
     key: "3",
     icon: <SettingOutlined />,
-    label: "老黄历信息由来",
+    label: "黄历信息由来",
     children: [
       { key: "31", label: "宜忌事项" },
       { key: "32", label: "胎神" },
