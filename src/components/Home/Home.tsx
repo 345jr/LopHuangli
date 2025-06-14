@@ -40,7 +40,7 @@ const Home = ({ data }: { data: huangLiData}) => {
       }, 100);
 
       try {
-        const response = await fetch(`http://199.115.229.247:8085/api/aliyunaiStream?q=
+        const response = await fetch(`https://calendar.lopop.top/api/aliyunaiStream?q=
           ${encodeURIComponent(prompt?`这是今日黄历的数据请你更具这个帮我做一个分析 ，并且给我一个今日运势1-100${prompt}`:inputRef.current?.input?.value || '')}
           &model=${encodeURIComponent(selectModelRef.current)}`);
         if (!response.ok) { 
@@ -142,7 +142,7 @@ const Home = ({ data }: { data: huangLiData}) => {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Button onClick={handleSend} loading={loadings[2]}  iconPosition="end" >发送 ENTER</Button>
-            <Button onClick={handleSend2}>解析黄历</Button>
+            <Button onClick={handleSend2} loading={loadings[3]}>解析黄历</Button>
           </div>
           
           <div

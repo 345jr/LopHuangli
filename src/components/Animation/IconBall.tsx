@@ -51,6 +51,7 @@ const DanglingIcon: React.FC<DanglingIconProps> = ({ imageUrl, onStretched, onRe
     engineRef.current = engine;
     renderRef.current = render;
     runnerRef.current = runner;
+    // render.canvas.style.pointerEvents = 'none';
 
     // --- 2. 创建图标和绳子 ---
     const iconBody = Bodies.rectangle(width / 2, height / 2, 80, 80, {
@@ -62,11 +63,11 @@ const DanglingIcon: React.FC<DanglingIconProps> = ({ imageUrl, onStretched, onRe
     });
 
     const rope = Constraint.create({
-      pointA: { x: width / 3, y: 0 },
+      pointA: { x: width / 3.2, y: 0 },
       bodyB: iconBody,
       stiffness: 0.01,
       damping: 0.05,
-      length: height / 2,
+      length: height / 7,
       render: {
           strokeStyle: '#fafaf9',
           lineWidth: 2,
@@ -75,6 +76,12 @@ const DanglingIcon: React.FC<DanglingIconProps> = ({ imageUrl, onStretched, onRe
 
     // --- 3. 添加鼠标交互 ---
     const mouse = Mouse.create(render.canvas);
+    // if (mouse.element) {
+    //   mouse.element.removeEventListener('wheel', (mouse as any).mousewheel);
+    //   mouse.element.removeEventListener('DOMMouseScroll', (mouse as any).mousewheel);
+    //   mouse.element.removeEventListener('DOMMouseScroll', mouse.); 
+ 
+    // }
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse: mouse,
       constraint: { stiffness: 0.2, render: { visible: false } },
@@ -124,7 +131,7 @@ const DanglingIcon: React.FC<DanglingIconProps> = ({ imageUrl, onStretched, onRe
         renderRef.current.canvas.height = newHeight;
 
         // 更新绳子的挂点位置
-        rope.pointA = { x: newWidth / 2, y: 0 };
+        rope.pointA = { x: newWidth / 3.2, y: 0 };
     };
 
     window.addEventListener('resize', handleResize);
@@ -146,7 +153,7 @@ const DanglingIcon: React.FC<DanglingIconProps> = ({ imageUrl, onStretched, onRe
     };
   }, [imageUrl, onStretched, onRelaxed]); // 依赖项数组，当这些 props 改变时，useEffect 会重新运行
 
-  return <div ref={containerRef} className='z-11' style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }} />;
+  return <div ref={containerRef} className='z-10' style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }} />;
 };
 
 export default DanglingIcon;

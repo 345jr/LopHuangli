@@ -4,7 +4,6 @@ import { IoSunny } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa";
 import SiChen from "./SiChen";
 
-import DanglingIcon from "../Animation/IconBall";
 
 const TimeSlider = ({ data }: { data: huangLiData}) => {
   const shiChenArray = [
@@ -26,8 +25,13 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
         
   const shiChen = `${data.data.lunarHour.toString().slice(-1)}时`; 
   const dataIndex = shiChenArray.findIndex((i) => i == shiChen);
+  const time = data.time
+  const timeArray = time.split('-')
+  const numberTimeArray = timeArray.map(i=>parseInt(i))
+  const currentTime = new Date(Date.UTC(numberTimeArray[0],numberTimeArray[1],numberTimeArray[2],numberTimeArray[3],numberTimeArray[4],numberTimeArray[5]))
+  console.log(currentTime)
   const getThemeColor = () => {
-    const hour = data ? parseInt(data.time.split("-")[3]) : 0;
+    const hour = currentTime.getHours()
     const isDaytime = hour >= 6 && hour < 18;
     return {
       isDaytime,    
@@ -37,12 +41,7 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
       trackColor: isDaytime ? "#FFF3E0" : "#1A2B4C",
     };
   };
-  const handleStretched = ()=>{
-    console.log('你拉了它')
-  }
-  const handleRelaxed =()=>{
-    console.log('你松开了它')
-  }
+  
   
   return (
     <div className="relative overflow-hidden">
@@ -77,11 +76,6 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
         />
         </div>
         <SiChen data={data} sliceNum={{start:6,end:12,now:shiChen}}/>
-        <DanglingIcon 
-            imageUrl="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-            onStretched={handleStretched}
-            onRelaxed={handleRelaxed}
-          />
       </div>
     </div>
   );
