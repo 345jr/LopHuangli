@@ -34,10 +34,9 @@ const TopBar = () => {
         ))}
       </nav>
       <div className="flex items-center space-x-4">
-        <FaGithub
-          className="cursor-pointer text-white hover:text-slate-400"
-          size={30}
-        />
+        <a href="https://github.com/345jr/LopHuangli/tree/main">
+          <FaGithub className="cursor-pointer text-white hover:text-slate-400" size={30} />
+        </a>
         <FaRegSmile
           className="cursor-pointer text-white hover:text-slate-400"
           size={30}

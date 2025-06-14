@@ -147,8 +147,8 @@ const Home = ({ data }: { data: huangLiData}) => {
           
           <div
             className="
-              min-w-[400px]
-              max-w-[400px]
+              min-w-[385px]
+              max-w-[385px]
               min-h-[547px]
               max-h-[547px]
               overflow-y-auto

@@ -29,7 +29,6 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
   const timeArray = time.split('-')
   const numberTimeArray = timeArray.map(i=>parseInt(i))
   const currentTime = new Date(Date.UTC(numberTimeArray[0],numberTimeArray[1],numberTimeArray[2],numberTimeArray[3],numberTimeArray[4],numberTimeArray[5]))
-  console.log(currentTime)
   const getThemeColor = () => {
     const hour = currentTime.getHours()
     const isDaytime = hour >= 6 && hour < 18;
@@ -42,7 +41,6 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
     };
   };
   
-  
   return (
     <div className="relative overflow-hidden">
       {/* 背景图 */}
@@ -50,7 +48,7 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/img/${
-            getThemeColor().isDaytime ? 5 : 9
+            getThemeColor().isDaytime ? 'day':'night'
           }.jpg')`,
         }}
       />

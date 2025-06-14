@@ -20,6 +20,10 @@ const upData = [
     title: "2025.6.6",
     description: "添加了AI解析功能初步实现",
   },
+  {
+    title: "2025.6.15",
+    description: "前后端部署,优化请求使用缓存",
+  },
 ];
 const nextData = [
   {
@@ -27,13 +31,18 @@ const nextData = [
     description: "补完页面",
   },
   {
-    title: "部署",
-    description: "部署到服务器",
+    title: "引入nextJS",
+    description: "学习并应用",
   },
   {
-    title: "缓存",
-    description: "切换时保留一些信息 ，减少后端开支",
+    title: "使用更多的Hook",
+    description: "优化性能，增加功能",
   },
+  {
+    title: "做好CI/CD",
+    description: "持续集成/持续部署",
+  },
+
 ];
 const Updata = () => {
   return (
