@@ -29,8 +29,8 @@ export function getItemsInfo(data?: huangLiData): DescriptionsProps["items"] {
       children: (
         <p>
           {data?.data.Zone}方{data?.data.twentyEightStar}
-          {data?.data.animal}
-          {data?.data.luckStar}-{data?.data.twentyEightStar}
+          {data?.data.SevenStar}
+          {data?.data.animal}-{data?.data.luckStar}
         </p>
       ),
     },

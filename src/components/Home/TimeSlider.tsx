@@ -4,6 +4,8 @@ import { IoSunny } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa";
 import SiChen from "./SiChen";
 
+import DanglingIcon from "../Animation/IconBall";
+
 const TimeSlider = ({ data }: { data: huangLiData}) => {
   const shiChenArray = [
     "子时",
@@ -35,7 +37,12 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
       trackColor: isDaytime ? "#FFF3E0" : "#1A2B4C",
     };
   };
-  
+  const handleStretched = ()=>{
+    console.log('你拉了它')
+  }
+  const handleRelaxed =()=>{
+    console.log('你松开了它')
+  }
   
   return (
     <div className="relative overflow-hidden">
@@ -69,10 +76,12 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
           trackColor={getThemeColor().trackColor}
         />
         </div>
-          
-        
-        
         <SiChen data={data} sliceNum={{start:6,end:12,now:shiChen}}/>
+        <DanglingIcon 
+            imageUrl="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+            onStretched={handleStretched}
+            onRelaxed={handleRelaxed}
+          />
       </div>
     </div>
   );

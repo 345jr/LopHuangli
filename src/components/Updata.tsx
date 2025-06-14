@@ -30,6 +30,10 @@ const nextData = [
     title: "部署",
     description: "部署到服务器",
   },
+  {
+    title: "缓存",
+    description: "切换时保留一些信息 ，减少后端开支",
+  },
 ];
 const Updata = () => {
   return (

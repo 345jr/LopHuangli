@@ -9,6 +9,7 @@ export interface huangLiData {
         Zone:string;
         twentyEightStar:string;
         animal:string;
+        SevenStar:string;
         luckStar:string;
         pengZu:string;
         sound:string;

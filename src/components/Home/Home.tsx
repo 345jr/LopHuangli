@@ -37,7 +37,7 @@ const Home = ({ data }: { data: huangLiData}) => {
     }, 100);
     try {
         // const Qvalue = inputRef.current?.input?.value;
-      const response = await fetch(`http://localhost:3000/api/aliyunai?q=${encodeURIComponent(inputRef.current?.input?.value || '')}&model=${encodeURIComponent(selectModelRef.current)}`);
+      const response = await fetch(`http://199.115.229.247:8085/api/aliyunaiStream?q=${encodeURIComponent(inputRef.current?.input?.value || '')}&model=${encodeURIComponent(selectModelRef.current)}`);
       const reader = response.body?.getReader();
       if (!reader) {
         throw new Error("Response body is null");
