@@ -7,5 +7,12 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   server :{
     port:8080,
+    proxy :{
+      '/api':{
+        target:'https://calendar.lopop.top',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
+      }
+    }
   }
 })

@@ -8,7 +8,7 @@ const App = () => {
   const [data, setData] = useState<huangLiData | null>(null);
 
   useEffect(() => {
-    fetch("https://calendar.lopop.top/api/huangli")
+    fetch("/api/huangli")
       .then((r) => r.json())
       .then((d) => setData(d))
       .catch((e) => console.log(`加载失败 :${e}`));
@@ -22,8 +22,6 @@ const App = () => {
   return (
     <div className="relative">
       <TopBar />
-      
-      
       <div className="relative z-10">
         {/* Aurora 背景层只覆盖主内容区 */}
         <div className="absolute inset-0 z-0 pointer-events-none h-full w-full">
