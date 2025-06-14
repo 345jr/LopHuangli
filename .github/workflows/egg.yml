@@ -20,7 +20,7 @@ jobs:
 
     - name: 检查构建产物（调试用）
       working-directory: ./client
-      run: ls -R
+      run: ls 
 
     - name: 获取构建文件
       uses: JamesIves/github-pages-deploy-action@v4
