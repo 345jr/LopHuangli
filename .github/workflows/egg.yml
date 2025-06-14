@@ -1,0 +1,18 @@
+name:构建项目工作流
+on:push
+permissions:
+  contents:write
+
+jobs:
+  npm-build:
+    name:安装依赖和构建
+    runs-on:ubuntu-latest
+
+    steps:
+    - name:读取仓库内容
+      uses:actions/checkout@v4
+
+    - name:安装依赖和项目打包
+      run:  |
+      npm install
+      npm build

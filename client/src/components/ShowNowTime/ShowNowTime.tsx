@@ -1,5 +1,7 @@
-import dayjs from "dayjs";
 import { useEffect, useState } from "react";
+
+import dayjs from "dayjs";
+
 import Counter from "../Reactbits/Counter";
 const ShowNowTime = () => {
   const [time, setTime] = useState(dayjs());

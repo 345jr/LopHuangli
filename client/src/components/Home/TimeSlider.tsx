@@ -2,6 +2,7 @@ import CircularSlider from "@fseehawer/react-circular-slider";
 import type { huangLiData } from "../../types/huangli";
 import { IoSunny } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa";
+
 import SiChen from "./SiChen";
 
 

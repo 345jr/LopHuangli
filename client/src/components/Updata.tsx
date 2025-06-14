@@ -1,7 +1,9 @@
-import TopBar from "./Global/TopBar";
-import Footer from "./Global/Footer";
 import { Avatar, List } from "antd";
 import { Col, Row } from "antd";
+
+import TopBar from "./Global/TopBar";
+import Footer from "./Global/Footer";
+
 
 const upData = [
   {

@@ -1,4 +1,5 @@
 import type { DescriptionsProps } from "antd";
+
 import type { huangLiData } from "../../types/huangli";
 
 export function getItemsInfo(data?: huangLiData): DescriptionsProps["items"] {
