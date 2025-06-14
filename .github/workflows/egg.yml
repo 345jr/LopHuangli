@@ -17,3 +17,8 @@ jobs:
       run: |
         npm install
         npm run build
+    - name: 获取构建文件
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: dist
+        folder: build
