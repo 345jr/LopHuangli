@@ -1,13 +1,19 @@
+import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
-  
   return (
     <>
-      <div>页面找不到</div>
-      <Link to={"/"}>
-        <button>返回</button>
-      </Link>
+      <Result
+        status="404"
+        title="404"
+        subTitle="页面找不到."
+        extra={
+          <Button type="primary">
+            <Link to={"/"}>返回</Link>
+          </Button>
+        }
+      />
     </>
   );
 };

@@ -1,5 +1,8 @@
 import type { huangLiData } from "./types/huangli";
 import { useEffect, useState } from "react";
+
+import { Flex, Spin } from "antd";
+
 import TopBar from "./components/Global/TopBar";
 import Home from "./components/Home/Home";
 import TimeSlider from "./components/Home/TimeSlider";
@@ -8,6 +11,8 @@ import {
   saveHuangLiStorage,
   getHuangLiStorage,
 } from "./components/util/SessionStorage";
+import UpBall from "./components/Global/UpBall";
+
 const App = () => {
   const [data, setData] = useState<huangLiData | null>(null);
 
@@ -36,8 +41,13 @@ const App = () => {
   }, []);
 
   if (!data) {
-    return <div className="text-center py-20">加载中…</div>;
-  }
+    return (
+    <>
+      <Flex align="center" gap="middle">
+        <Spin size="large" tip='获取数据中...'/>
+      </Flex>
+    </> 
+  )}
 
   return (
     <div className="relative">
@@ -51,6 +61,7 @@ const App = () => {
         <TimeSlider data={data}></TimeSlider>
         <Home data={data}></Home>
         <Footer />
+        <UpBall />
       </div>
     </div>
   );

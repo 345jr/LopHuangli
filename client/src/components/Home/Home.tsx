@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 
-import { Col, Row } from "antd";
+import { Badge, Col, Row } from "antd";
 import { Descriptions } from "antd";
 import { Input } from 'antd';
 import type { InputRef } from 'antd';
 import { Button } from 'antd';
+
 import { Select } from 'antd';
 import { AnimatedMarkdown } from 'flowtoken';
 
@@ -14,13 +15,14 @@ import { getItemsInfo,getModelList } from "./ItemsInfo";
 import 'flowtoken/dist/styles.css';
 
 const Home = ({ data }: { data: huangLiData}) => {
-
+  //hook
   const [text, setText] = useState('');
-
   const inputRef =useRef<InputRef>(null)
   const selectModelRef =useRef('qwen-plus')
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [loadings, setLoadings] = useState<boolean[]>([]);
+  const answerStatus = useRef('')
+  const buttonStatus = useRef(false)
 
   //获取AI结果
   const handleStream = (prompt?:string) => {
@@ -74,6 +76,7 @@ const Home = ({ data }: { data: huangLiData}) => {
       }
     });
   };
+  
   //处理选择的模型
   const handleSeletModels = (value:string)=>{
     selectModelRef.current = value
@@ -83,6 +86,8 @@ const Home = ({ data }: { data: huangLiData}) => {
     setLoadings((prevLoadings) => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
+      answerStatus.current ='生成中'
+      buttonStatus.current = true
       return newLoadings;
     }); 
   };
@@ -91,6 +96,8 @@ const Home = ({ data }: { data: huangLiData}) => {
     setLoadings((prevLoadings) => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = false;
+      answerStatus.current ='生成完毕'
+      buttonStatus.current = false
       return newLoadings;
     });
   };
@@ -106,7 +113,7 @@ const Home = ({ data }: { data: huangLiData}) => {
     }
   };
   //处理发送请求-解析黄历
-  const handleSend2 = async () => {
+  const handleAnalysis = async () => {
     try {
       enterLoading(3)
       const huangLiData:string = JSON.stringify(data.data)
@@ -135,14 +142,16 @@ const Home = ({ data }: { data: huangLiData}) => {
           <div className="flex flex-row">
             <p className="flex text-center p-4">模型选择</p>
             <div className="mt-2">
-              <Select defaultValue={selectModelRef.current} style={{width:240}} onChange={handleSeletModels} options={getModelList()}/>
+              <Select defaultValue={selectModelRef.current} style={{width:200}} onChange={handleSeletModels} options={getModelList()}/>
+            </div>
+            <div className="flex justify-center mt-3.5 ml-4">
+              {answerStatus.current == '生成中' ?(<Badge status="processing" text="生成中" />):answerStatus.current == '生成完毕'?(<Badge status="success" text="生成完毕" />):(<></>)}
             </div>    
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Button onClick={handleSend} loading={loadings[2]}  iconPosition="end" >发送 ENTER</Button>
-            <Button onClick={handleSend2} loading={loadings[3]}>解析黄历</Button>
-          </div>
-          
+          <div className="grid grid-cols-2 gap-4 ">
+            <Button onClick={handleSend} loading={loadings[2]}  iconPosition="end" disabled={buttonStatus.current}>发送 </Button>          
+            <Button onClick={handleAnalysis} loading={loadings[3]} disabled={buttonStatus.current}>解析黄历</Button>
+          </div>          
           <div
             className="
               min-w-[385px]

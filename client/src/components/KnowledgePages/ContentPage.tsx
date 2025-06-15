@@ -21,7 +21,10 @@ const ContentPage = ({selectedKey}:ContentPageProps) => {
         break
       case '12' :
         mdPath='/Content/12.md'
-        break         
+        break  
+      case '21' :
+        mdPath='/Content/21.md'
+        break           
       case '22' :
         mdPath='/Content/22.md'
         break        

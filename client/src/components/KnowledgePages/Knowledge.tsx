@@ -7,6 +7,7 @@ import TopBar from "../Global/TopBar";
 import Footer from "../Global/Footer";
 import ContentPage from "./ContentPage";
 import MenuItems from "./MenuItem";
+import UpBall from "../Global/UpBall";
 
 interface LevelKeysProps {
   key?: string;
@@ -97,7 +98,7 @@ const Knowledge = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <TopBar />
       {isSmallScreen ? (
         <div>
@@ -142,6 +143,7 @@ const Knowledge = () => {
         </Layout>
       </Layout>
       <Footer />
+      <UpBall />
     </div>
   );
 };
