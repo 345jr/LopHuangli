@@ -9,7 +9,6 @@ import { Select } from 'antd';
 import { AnimatedMarkdown } from 'flowtoken';
 
 import type { huangLiData } from "../../types/huangli";
-import ShowNowTime from "../ShowNowTime/ShowNowTime";
 import { getItemsInfo,getModelList } from "./ItemsInfo";
 
 import 'flowtoken/dist/styles.css';
@@ -121,8 +120,6 @@ const Home = ({ data }: { data: huangLiData}) => {
  
   return (
     <div>
-      {/* <ShowNowTime /> */}
-
       <Row className="justify-center mt-6" gutter={16} >
         <Col span={50}>
           <Descriptions
