@@ -33,7 +33,7 @@ const Home = ({ data }: { data: huangLiData}) => {
 
       let buffer = '';
       intervalRef.current = setInterval(() => {
-        if (buffer.length > 0) {
+        if (buffer.length > 0) {         
           setText(prev => prev + buffer);
           buffer = '';
         }
@@ -59,8 +59,9 @@ const Home = ({ data }: { data: huangLiData}) => {
           const chunk = decoder.decode(value);
           buffer += chunk;
         }
+        console.log(buffer)
       } catch (error) {
-        console.error("Streaming failed:", error);
+        console.error("流式传输失败 :", error);
         setText("请求出错，请检查网络或联系管理员。");
         reject(error); 
       } finally {
@@ -117,12 +118,12 @@ const Home = ({ data }: { data: huangLiData}) => {
       exitLoading(3);
     } 
   }
-
+ 
   return (
     <div>
-      <ShowNowTime />
+      {/* <ShowNowTime /> */}
 
-      <Row className="justify-center" gutter={16}>
+      <Row className="justify-center mt-6" gutter={16} >
         <Col span={50}>
           <Descriptions
             bordered
@@ -133,7 +134,7 @@ const Home = ({ data }: { data: huangLiData}) => {
 
         <Col span={50}>
           <h1>AI解析</h1>
-          <Input placeholder="请输入你的问题?" ref={inputRef} />
+          <Input placeholder="请输入你的问题?" ref={inputRef} allowClear />
           <div className="flex flex-row">
             <p className="flex text-center p-4">模型选择</p>
             <div className="mt-2">
