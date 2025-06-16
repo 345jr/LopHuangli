@@ -137,7 +137,6 @@ const Home = ({ data }: { data: huangLiData}) => {
         </Col>
 
         <Col span={50}>
-          <h1>AI解析</h1>
           <Input placeholder="请输入你的问题?" ref={inputRef} allowClear />
           <div className="flex flex-row">
             <p className="flex text-center p-4">模型选择</p>

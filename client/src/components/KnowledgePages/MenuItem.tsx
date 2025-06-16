@@ -12,7 +12,7 @@ const items: MenuItem[] = [
     label: "总览",
     children: [
       { key: "11", label: "概述" },
-      { key: "12", label: "why?" },
+      { key: "12", label: "背景" },
     ],
   },
   {

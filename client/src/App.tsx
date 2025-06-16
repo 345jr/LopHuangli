@@ -12,6 +12,7 @@ import {
   getHuangLiStorage,
 } from "./components/util/SessionStorage";
 import UpBall from "./components/Global/UpBall";
+import Banner from "./components/Home/Banner";
 
 const App = () => {
   const [data, setData] = useState<huangLiData | null>(null);
@@ -59,6 +60,7 @@ const App = () => {
         </div>
         {/* 主内容区 */}
         <TimeSlider data={data}></TimeSlider>
+        <Banner />
         <Home data={data}></Home>
         <Footer />
         <UpBall />
