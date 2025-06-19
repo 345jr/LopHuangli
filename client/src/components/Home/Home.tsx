@@ -101,7 +101,7 @@ const Home = ({ data }: { data: huangLiData}) => {
       return newLoadings;
     });
   };
-  //处理发送请求-普通聊天
+  //处理发送请求-普通问答
   const handleSend = async () => {
     enterLoading(2);
     try {

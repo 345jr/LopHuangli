@@ -44,9 +44,9 @@ const App = () => {
   if (!data) {
     return (
     <>
-      <Flex align="center" gap="middle">
-        <Spin size="large" tip='获取数据中...'/>
-      </Flex>
+        <div className="flex items-center justify-center w-screen h-screenl">
+          <Spin size="large" tip='获取数据中...'/>
+        </div>     
     </> 
   )}
 
@@ -54,7 +54,6 @@ const App = () => {
     <div className="relative">
       <TopBar />
       <div className="relative z-10">
-        {/* Aurora 背景层只覆盖主内容区 */}
         <div className="absolute inset-0 z-0 pointer-events-none h-full w-full">
           {/* 这里可以放背景的组件 */}
         </div>

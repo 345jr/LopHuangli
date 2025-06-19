@@ -6,7 +6,7 @@ import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import App from './App.tsx'
 import Knowledge from './components/KnowledgePages/Knowledge.tsx'
 import NotFoundPage from './components/Global/NotFoundPage.tsx'
-import Updata from './components/Updata.tsx'
+import Updata from './components/UpPage/Updata.tsx'
 
 const router = createBrowserRouter([
   {path:"/",element:<App />},

@@ -57,7 +57,7 @@ const TimeSlider = ({ data }: { data: huangLiData}) => {
       <div className="relative flex justify-center w-full py-2 sm:py-12 z-10">
         <SiChen data={data} sliceNum={{start:0,end:6,now:shiChen}}/>
         {getThemeColor().isDaytime ? (
-          <IoSunny className="text-amber-500 animate-spin" size={60} />
+          <IoSunny className="text-amber-500 " size={60} />
         ) : (
           <FaMoon className="text-white" size={50} />
         )}

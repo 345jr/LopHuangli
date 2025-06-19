@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* Banner */
+
+.banner-title {
+    @apply text-[66px] font-medium font-serif whitespace-nowrap;
+  }
+
+.banner-summary {
+    @apply whitespace-nowrap font-normal text-[16px]
+}
