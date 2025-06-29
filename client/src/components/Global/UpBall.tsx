@@ -1,11 +1,14 @@
-import { FaArrowUp } from "react-icons/fa6";
+import {FaArrowUp} from 'react-icons/fa6'
 const UpBall = () => {
-    const handleClick = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      };
+  const handleClick = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
   return (
-    <div onClick={handleClick} className="right-10 bottom-10 fixed bg-[#FFFFFF] shadow-xl/30 w-10 h-10 rounded-full flex justify-center cursor-pointer">
-        <FaArrowUp size={24} className="text-[#57534e]  mt-2" />
+    <div
+      onClick={handleClick}
+      className="fixed right-10 bottom-10 flex h-10 w-10 cursor-pointer justify-center rounded-full bg-[#FFFFFF] shadow-xl/30"
+    >
+      <FaArrowUp size={24} className="mt-2 text-[#57534e]" />
     </div>
   )
 }

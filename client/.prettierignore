@@ -1,0 +1,6 @@
+# 忽略构建输出目录
+dist/
+node_modules/
+build/
+.env
+*.log

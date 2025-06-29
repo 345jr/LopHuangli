@@ -1,23 +1,23 @@
-import { Avatar, List } from "antd";
-import { Col, Row } from "antd";
+import {Avatar, List} from 'antd'
+import {Col, Row} from 'antd'
 
-import TopBar from "../Global/TopBar";
-import Footer from "../Global/Footer";
-import {upData , nextData} from './UpItem'
-import UpdateBanner from "./UpBanner";
+import TopBar from '../Global/TopBar'
+import Footer from '../Global/Footer'
+import {upData, nextData} from './UpItem'
+import UpdateBanner from './UpBanner'
 
 const Updata = () => {
   const updataInfo = {
-    productName:"  LopCalendar  ",
-    launchDate:"2025-05-28",
-    updateDate:"2025-06-19"
+    productName: '  LopCalendar  ',
+    launchDate: '2025-05-28',
+    updateDate: '2025-06-19',
   }
   return (
     <div>
       <TopBar />
-      <UpdateBanner {...updataInfo}/>
-      <Row gutter={{xs:0,sm:4,md:16}}  justify={'space-evenly'} >
-        <Col span={6}>        
+      <UpdateBanner {...updataInfo} />
+      <Row gutter={{xs: 0, sm: 4, md: 16}} justify={'space-evenly'}>
+        <Col span={6}>
           <List
             itemLayout="horizontal"
             dataSource={upData}
@@ -58,7 +58,7 @@ const Updata = () => {
       </Row>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Updata;
+export default Updata

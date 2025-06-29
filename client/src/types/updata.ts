@@ -1,5 +1,5 @@
 export interface updataProps {
-    productName:string;
-    launchDate:string;
-    updateDate:string;
-  }
+  productName: string
+  launchDate: string
+  updateDate: string
+}

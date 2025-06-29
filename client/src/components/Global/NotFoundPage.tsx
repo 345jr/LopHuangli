@@ -1,5 +1,5 @@
-import { Button, Result } from "antd";
-import { Link } from "react-router-dom";
+import {Button, Result} from 'antd'
+import {Link} from 'react-router-dom'
 
 const NotFoundPage = () => {
   return (
@@ -10,12 +10,12 @@ const NotFoundPage = () => {
         subTitle="页面找不到."
         extra={
           <Button type="primary">
-            <Link to={"/"}>返回</Link>
+            <Link to={'/'}>返回</Link>
           </Button>
         }
       />
     </>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage
