@@ -6,12 +6,16 @@ import Footer from "../Global/Footer";
 import {upData , nextData} from './UpItem'
 import UpdateBanner from "./UpBanner";
 
-
 const Updata = () => {
+  const updataInfo = {
+    productName:"  LopCalendar  ",
+    launchDate:"2025-05-28",
+    updateDate:"2025-06-19"
+  }
   return (
     <div>
       <TopBar />
-      <UpdateBanner productName="LopCalendar" launchDate="2025-05-28" updateDate="2025-06-19"/>
+      <UpdateBanner {...updataInfo}/>
       <Row gutter={{xs:0,sm:4,md:16}}  justify={'space-evenly'} >
         <Col span={6}>        
           <List

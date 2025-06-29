@@ -91,15 +91,15 @@ export function getModelList (){
     return [
         {
             value:'qwen-plus-latest',
-            label:'qwen-plus-latest   能力均衡'
+            label:'qwen-plus   能力均衡'
         },
         {
             value:'qwen-turbo-latest',
-            label:'qwen-turbo-latest    快速'
+            label:'qwen-turbo    快速'
         },
         {
             value:'qwen-max-latest',
-            label:'qwen-max-latest   效果最好'
+            label:'qwen-max   效果最好'
         },
     ]
 }

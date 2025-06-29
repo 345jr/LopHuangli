@@ -1,4 +1,5 @@
 import { useEffect, useState,useRef } from 'react';
+import axios from 'axios';
 
 import Markdown from 'react-markdown'
 import { Anchor, Col, Row } from 'antd';
@@ -33,9 +34,8 @@ const ContentPage = ({selectedKey}:ContentPageProps) => {
         break    
     }
     if (mdPath) {
-      fetch(mdPath)
-        .then(res => res.text())
-        .then(text => setMdContent(text))
+      axios.get(mdPath)
+        .then(res => setMdContent(res.data))
     } else {
       setMdContent('暂无内容');
     }

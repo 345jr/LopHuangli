@@ -1,7 +1,8 @@
 import type { huangLiData } from "./types/huangli";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-import { Flex, Spin } from "antd";
+import { Spin } from "antd";
 
 import TopBar from "./components/Global/TopBar";
 import Home from "./components/Home/Home";
@@ -26,11 +27,10 @@ const App = () => {
           console.log("使用缓存数据");
           return;
         }
-        fetch("/api/huangli")
-          .then((r) => r.json())
+        axios.get("/api/huangli")
           .then((d) => {
-            setData(d);
-            saveHuangLiStorage("huangli-data", d);
+            setData(d.data);
+            saveHuangLiStorage("huangli-data", d.data);
             return d;
           })
           .catch((e) => console.log(`加载失败 :${e}`));
