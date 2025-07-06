@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+
+
+/* 你可以在这里添加一些全局基础样式 */
+body {
+  background-color: #f9fafb; /* Light gray background */
+}
